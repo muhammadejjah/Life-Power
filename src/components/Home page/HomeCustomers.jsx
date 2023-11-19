@@ -36,7 +36,7 @@ const HomeCustomers = () => {
         )
     })
     return (
-        <section className=''>
+        <section >
             <div className='ps-5 ms-5 overflow-hidden'
                 data-aos="fade-right"
                 data-aos-duration="1000">
