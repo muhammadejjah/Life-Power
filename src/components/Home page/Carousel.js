@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/esm/Container';
 
@@ -16,7 +16,7 @@ function CarouselAd() {
 
     const captionsShow = index.map((el, idx) => {
         return (
-            <Carousel.Item interval={5000} key={idx}>
+            <Carousel.Item interval={2000} key={idx}>
                 <img
                     className="d-block w-100  Carousel-img  "
                     
@@ -26,6 +26,9 @@ function CarouselAd() {
             </Carousel.Item>
         )
     })
+    useEffect(()=>{
+        console.log("render")
+    },[])
     
     return (
         <Container>

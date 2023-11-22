@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/esm/Container'
 import Row from 'react-bootstrap/esm/Row'
 import icon1 from '../../images/icon1.png'
 import icon2 from '../../images/icon2.png'
-import icon3 from '../../images/icon1.png'
+import icon3 from '../../images/icon3.png'
 import logo192 from '../../images/logo192.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';

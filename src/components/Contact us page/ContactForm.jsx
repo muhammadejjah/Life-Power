@@ -24,7 +24,7 @@ const ContactForm = () => {
     return (
         <Container>
             <Row>
-                <Col sm={12} lg={6} className='d-flex align-items-center justify-content-start gap-5 flex-column'>
+                <Col sm={12} lg={6} className='d-flex align-items-center justify-content-evenly gap-5 flex-column'>
                     {dataShow}
                 </Col>
                 <Col sm={12} lg={6}>

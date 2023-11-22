@@ -6,19 +6,17 @@ import battery from '../../images/11.png'
 const ProductViewer = () => {
     const data = [inv, battery, inv,] //test
 
-    const [mainImg, setMainImg] = useState(data[0])
+    const [mainImg, setMainImg] = useState(`${data[0]}`)
     const [subimg, setSubImg] = useState("")
-    const handleChange = (e) => {
-        setMainImg(e.target.src)
-        console.log(e.target.src)
-    }
+    
     console.log(mainImg)
+    console.log(data)
     const dataShow = data.map((el, idx) => {
         return (
             <div key={idx} className='py-1'>
                 <img
-                    onClick={(e) => { handleChange(e) }}
-                    className={`product-sub-img ${el == mainImg ? "active" : ""}`}
+                    onClick={(e) => { setMainImg(e.target.src) }}
+                    className={`product-sub-img ${el === mainImg ? "active" : ""}`}
                     src={el}
                     alt='sub-img'
                 />

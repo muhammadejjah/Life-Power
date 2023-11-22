@@ -1,7 +1,7 @@
 import React from 'react'
 import redHeader from "../images/red-header.png"
 import ImgHeader from '../components/About Us Page/ImgHeader'
-import ContactForm from '../components/About Us Page/ContactForm'
+import ContactForm from '../components/Contact us page/ContactForm'
 const ContactUs = () => {
   return (
     <div >

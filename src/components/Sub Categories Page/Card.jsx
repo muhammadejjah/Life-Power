@@ -7,7 +7,7 @@ import CardPlaceholder from '../CardPlaceholder';
 const CardProduct = ({ img, desc, role }) => {
   return (
     <Link to={role === "subCategory" ? `/products/${1}` : `/product/${1}`} className='ani-fade'>
-      <Card className="mb-3 pt-3" style={{ width: '13rem' }}>
+      <Card className="mb-3 pt-3" style={{ width: '12rem' }}>
         <Card.Img className='card-img' variant="top" src={img} />
         <Card.Body>
           <Card.Title>{desc}</Card.Title>
