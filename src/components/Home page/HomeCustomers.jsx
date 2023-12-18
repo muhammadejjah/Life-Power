@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -8,35 +8,39 @@ import Col from 'react-bootstrap/esm/Col';
 import com from "../../images/icon4.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import AOS from 'aos';
+import { useSelector } from 'react-redux';
 const HomeCustomers = () => {
-    const data =[1,1,1,1,1,] //for test 
+    const { comments } = useSelector(state => state.HomeSlice)
 
-    const dataShow = data.map((el,idx)=>{
-        return(
-            <SwiperSlide className='costumer' key={idx}>
-                    <div className='px-5 py-3 button-color costumer ' style={{ borderRadius: "10px" }}>
-                        <p>
-                            Jorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                        </p>
-                        <div className='row '>
-                            <Col xs={3}  ><img src={com} alt=',,' /></Col>
-                            <Col xs={9} >
-                                <h5 className='fw-bold '>John Doe</h5>
-                                <p>Engineer</p>
-                            </Col>
-                            <Col className='d-flex align-items-center ' sm={2}>
-                                <div>
-                                    <FontAwesomeIcon icon={faStar} /><span>4.5</span>
-                                </div>
-                            </Col>
-                        </div>
+    const sw = window.innerWidth
+    const [screenSize, setScreenSize] = useState(sw)
+    window.onresize = () => {
+        setScreenSize(window.innerWidth)
+    }
+
+    const dataShow = comments.map((el, idx) => {
+        return (
+            <SwiperSlide className='' key={idx}>
+                <div className='p-4 button-color costumer d-flex flex-column justify-content-evenly ' style={{ borderRadius: "10px" }}>
+                    <p className='customer-context'>{el.content}</p>
+                    <div className='row '>
+                        <Col xs={9} >
+                            <h5 className='fw-bold '>{el.username}</h5>
+                            <p>{el.career}</p>
+                        </Col>
+                        <Col className='d-flex align-items-center ' xs={3}>
+                            <div>
+                                <FontAwesomeIcon icon={faStar} /><span> {el.rate}</span>
+                            </div>
+                        </Col>
                     </div>
-                </SwiperSlide>
+                </div>
+            </SwiperSlide>
         )
     })
+
     return (
-        <section >
+        <section className='mt-5' >
             <div className='ms-5 overflow-hidden'
                 data-aos="fade-right"
                 data-aos-duration="1000">
@@ -45,8 +49,8 @@ const HomeCustomers = () => {
             </div>
             <Swiper
                 className='p-5'
-                spaceBetween={1}
-                slidesPerView={1}
+                spaceBetween={screenSize < 576 ? 20 : 50}
+                slidesPerView={screenSize < 576 ? 1 : 1.3}
             >
                 {dataShow}
             </Swiper>

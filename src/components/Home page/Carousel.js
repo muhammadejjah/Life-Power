@@ -1,44 +1,29 @@
-import { useEffect, useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/esm/Container';
-
-import ad from "../../images/ad.png"; 
+import { useSelector } from 'react-redux';
+import { BaseURL } from '../../Api/Api';
 function CarouselAd() {
-
-    
-    const [index, setIndex] = useState([
-        { img: ad },
-        { img: "https://c4.wallpaperflare.com/wallpaper/339/998/542/space-landscape-planet-1920-x-1080-wallpaper-preview.jpg" },
-        { img: ad },
-        { img: "https://c4.wallpaperflare.com/wallpaper/339/998/542/space-landscape-planet-1920-x-1080-wallpaper-preview.jpg" },
-    ]); //for test
-
-
-    const captionsShow = index.map((el, idx) => {
+    const { sliderImages } = useSelector(state => state.HomeSlice)
+    const captionsShow = sliderImages.map((el, idx) => {
         return (
             <Carousel.Item interval={2000} key={idx}>
                 <img
                     className="d-block w-100  Carousel-img  "
-                    
-                    src={el.img}
-                    alt={el.img}
-        />                      
+                    src={`${BaseURL}${el}`}
+                    alt={el}
+                />
             </Carousel.Item>
         )
     })
-    useEffect(()=>{
-        console.log("render")
-    },[])
-    
+
     return (
         <Container>
-        <div className='mb-5 pt-3 ' style={{marginTop:"70px"}}>
-            <Carousel fade controls={false} touch={true}  >
-                {captionsShow}
-            </Carousel>
-        </div>
+            <div className='mb-5 pt-3 ' style={{ marginTop: "70px" }}>
+                <Carousel fade controls={false} touch={true}  >
+                    {captionsShow}
+                </Carousel>
+            </div>
         </Container>
-
     );
 }
 

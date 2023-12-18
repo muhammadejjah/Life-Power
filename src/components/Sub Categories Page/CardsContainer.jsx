@@ -1,24 +1,19 @@
-import React, { Fragment } from 'react'
-import Container from 'react-bootstrap/esm/Container'
-import Row from 'react-bootstrap/esm/Row'
+import React from 'react'
 import CardProduct from './Card'
-import inv from "../../images/12.png"
-import battery from "../../images/11.png"
 import CardPlaceholder from '../CardPlaceholder'
+import { BaseURL } from '../../Api/Api'
+const CardsContainer = ({ data, role, loading }) => {
+  const data1 = data || []
 
-const CardsContainer = ({ data, role }) => {
-  const desc = "SubCategory"
-  data = data || [] //for test
-
-
-  const dataShow = data.map((el, idx) => {
+  const dataShow = data1.map((el, i) => {
     return (
-      <CardProduct role={role} key={idx} img={inv} desc={desc} />
+      <CardProduct role={role} key={i} img={`${BaseURL}${role === "search" ? el.thumbnail : el.image}`} desc={role === "subCategory" ? el.title : el.name} id={el.id} />
     )
   })
+
   return (
     <div className='d-flex  align-items-center  justify-content-lg-start justify-content-center gap-4  flex-wrap '>
-      <CardPlaceholder loading={!true}>{dataShow}</CardPlaceholder>
+      <CardPlaceholder loading={loading}>{dataShow}</CardPlaceholder>
     </div>
   )
 }

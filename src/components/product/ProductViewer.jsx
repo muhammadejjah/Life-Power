@@ -1,28 +1,25 @@
 import React, { useState } from 'react'
 import Col from 'react-bootstrap/esm/Col'
 import Row from 'react-bootstrap/esm/Row'
-import inv from '../../images/12.png'
-import battery from '../../images/11.png'
-const ProductViewer = () => {
-    const data = [inv, battery, inv,] //test
+import { BaseURL } from '../../Api/Api'
+const ProductViewer = ({ images }) => {
+    const imgs = images || []
+    const subimgClass = 'product-sub-img '
+    const [mainImg, setMainImg] = useState({ src: imgs[0], id: 0 })
 
-    const [mainImg, setMainImg] = useState(`${data[0]}`)
-    const [subimg, setSubImg] = useState("")
-    
-    console.log(mainImg)
-    console.log(data)
-    const dataShow = data.map((el, idx) => {
+    const dataShow = imgs.map((el, idx) => {
         return (
-            <div key={idx} className='py-1'>
+            <div key={idx} className='py-1 w-100'>
                 <img
-                    onClick={(e) => { setMainImg(e.target.src) }}
-                    className={`product-sub-img ${el === mainImg ? "active" : ""}`}
-                    src={el}
+                    onClick={(e) => { setMainImg({ ...mainImg, src: el, id: idx }) }}
+                    className={subimgClass + (mainImg.id === idx ? "active" : "")}
+                    src={`${BaseURL}${el}`}
                     alt='sub-img'
                 />
             </div>
         )
     })
+
     return (
         <div style={{ maxHeight: "60hv", marginBottom: "30px" }}>
             <Row>
@@ -35,7 +32,7 @@ const ProductViewer = () => {
                 </Col>
                 <Col xs={10} >
                     <div className=' w-100' style={{ height: "60vh" }} >
-                        <img className='product-main-img h-100 w-100' src={mainImg} alt='product-main-img' />
+                        <img className='product-main-img h-100 w-100' src={`${BaseURL}${mainImg.src}`} alt='product-main-img' />
                     </div>
                 </Col>
             </Row>

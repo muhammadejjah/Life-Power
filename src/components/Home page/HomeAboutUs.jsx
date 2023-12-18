@@ -11,15 +11,16 @@ import 'aos/dist/aos.css';
 const HomeAboutUs = () => {
     useEffect(() => {
         AOS.init();
-      }, [])
+    }, [])
+    
     return (
-        <section style={{position:"relative",overflow:"hidden"}}>
-            <img 
-            data-aos="zoom-in-right" 
-            data-aos-duration="1000"
-            src={logo192} 
-            alt="logo"
-            style={{position:"absolute",right:"-80px",width:"15rem",transform:"rotate(-20deg"}}
+        <section style={{ position: "relative", overflow: "hidden" }}>
+            <img
+                data-aos="zoom-in-right"
+                data-aos-duration="1000"
+                src={logo192}
+                alt="logo"
+                style={{ position: "absolute", right: "-80px", width: "15rem", transform: "rotate(-20deg" }}
             />
             <Container className='my-5'>
                 <h2 className='main-color text-center fw-bold'>About <span className='primery-color'>Us</span></h2>
@@ -28,7 +29,7 @@ const HomeAboutUs = () => {
                         data-aos="fade-right"
                         sm={12}
                         md={4}
-                        className='d-flex flex-column align-items-center justify-content-center text-center gap-3 px-5'>
+                        className='d-flex flex-column align-items-center justify-content-start text-center gap-3 px-5'>
                         <div className='about-circle shadow'>
                             <img src={icon1} alt="1" />
                         </div>
@@ -37,10 +38,10 @@ const HomeAboutUs = () => {
                         </p>
                     </Col>
                     <Col
-                    data-aos="fade-up"
+                        data-aos="fade-up"
                         sm={12}
                         md={4}
-                        className='d-flex flex-column align-items-center justify-content-center text-center gap-3 px-5'>
+                        className='d-flex flex-column align-items-center justify-content-start text-center gap-3 px-5'>
                         <div className='about-circle shadow'>
                             <img src={icon2} alt="1" />
                         </div>
@@ -49,16 +50,15 @@ const HomeAboutUs = () => {
                         </p>
                     </Col>
                     <Col
-                    data-aos="fade-left"
+                        data-aos="fade-left"
                         sm={12}
                         md={4}
-                        className='d-flex flex-column align-items-center justify-content-center text-center gap-3 px-5'>
+                        className='d-flex flex-column align-items-center justify-content-start text-center gap-3 px-5'>
                         <div className='about-circle shadow'>
                             <img src={icon3} alt="1" />
                         </div>
                         <h5 className='primery-color fw-bold'>24/7 Support</h5>
                         <p>"Our customer care team is committed to exceptional service for your contentment."
-
                         </p>
                     </Col>
                 </Row>
