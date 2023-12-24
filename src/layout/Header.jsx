@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import Loading from '../components/Loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Offcanvas, } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getHomeData } from '../state/HomeSlice';
@@ -14,20 +14,26 @@ import Accordion from 'react-bootstrap/Accordion'
 import { getSearch } from '../state/SearchSlice';
 import { BaseURL } from '../Api/Api';
 import { setSearchTittle } from '../state/SearchSlice';
+import searchImg from "../images/search.svg"
 const Header = () => {
     const dispatch = useDispatch()
     const { searchListShow, searchList, loading, error } = useSelector(state => state.SearchSlice)
     const { categories } = useSelector(state => state.HomeSlice)
-    const [data, setData] = useState([])
     const [open, setOpen] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
     const dropdown = useRef(null)
     const productNav = useRef(null)
     const [term, setTerm] = useState("")
+
     useEffect(() => {
-        if (term) {
-            dispatch(getSearch(term))
-            dispatch(setSearchTittle(term))
+        const timeout =setTimeout(()=>{
+            if (term) {
+                dispatch(getSearch(term))
+                dispatch(setSearchTittle(term))
+            }
+        },200)
+        return ()=>{
+            clearTimeout(timeout)
         }
     }, [term])
 
@@ -77,7 +83,7 @@ const Header = () => {
         return (
             <Accordion key={el.id}>
                 <Accordion.Item eventKey="0">
-                    <Accordion.Header>{el.name}</Accordion.Header>
+                    <Accordion.Header><Link style={{zIndex:"999"}} to={`category/${el.id}`}>{el.name}</Link></Accordion.Header>
                     <Accordion.Body>
                         {el.subcategories.map((element, i) => {
                             return (
@@ -170,7 +176,7 @@ const Header = () => {
                             <input
                                 value={term}
                                 onChange={(e) => { setTerm(e.target.value) }}
-                                placeholder='Search...'
+                                placeholder='&#xf002; Search'
                                 className='search-input ms-auto '
                                 type='text'
                             />
@@ -182,8 +188,9 @@ const Header = () => {
                             <div style={{ display: term ? "block" : "none" }} className='search-dropdown'>
                                 <Loading loading={loading}>
                                     {error ?
-                                        <div className='h-100 w-100 d-flex align-items-center justify-content-center'>
-                                            <p className='primery-color'>No Product Found</p>
+                                        <div className=' center flex-column' style={{height:"150px"}}>
+                                            <img className='w-50' src={searchImg}/>
+                                            <p className='main-color-opacity m-0'>No matches</p>
                                         </div> :
                                         <Fragment>
                                             {searchResult}
@@ -198,7 +205,6 @@ const Header = () => {
                                                     </Link>
                                                 </div>}
                                         </Fragment>
-
                                     }
                                 </Loading>
                             </div>

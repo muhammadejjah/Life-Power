@@ -1,21 +1,23 @@
 import React, { useEffect } from 'react'
 import Container from 'react-bootstrap/esm/Container'
-import FirstSection from '../components/Sub Categories Page/FirstSection'
-import CardsContainer from '../components/Sub Categories Page/CardsContainer'
-import { useParams } from 'react-router-dom'
+import FirstSection from '../components/Category Page/FirstSection'
+import CardsContainer from '../components/Category Page/CardsContainer'
+import { useLocation, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategory } from '../state/CategorySlice'
 import Err from '../components/Err'
 
-const SubCategories = () => {
+const CategoryPage = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
+  const { pathname } = useLocation()
   const { category, loading, error } = useSelector(state => state.CategorySlice)
   useEffect(() => {
     if (id != category.category_id) {
       dispatch(getCategory(id))
     }
-  }, [])
+  }, [pathname])
+  
   return (
     <Container style={{ marginTop: "75px" }}>
       <Err error={error}>
@@ -28,4 +30,4 @@ const SubCategories = () => {
   )
 }
 
-export default SubCategories
+export default CategoryPage

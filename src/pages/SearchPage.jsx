@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import CardsContainer from '../components/Sub Categories Page/CardsContainer'
+import CardsContainer from '../components/Category Page/CardsContainer'
 import { getSearch } from '../state/SearchSlice'
 import { useParams } from 'react-router-dom'
+import searchImg from "../images/search.svg"
 const SearchPage = () => {
     const { search } = useParams()
     const dispatch = useDispatch()
@@ -36,9 +37,9 @@ const SearchPage = () => {
                 <p className='main-color text-center my-4'>{`(${searchList.length}) search results`}</p>
             </div>
             {error ?
-                <div className='center' style={{minHeight:"50vh"}}>
-                    <p className='primery-color'>No Product found
-                    </p>
+                <div className='center flex-column mt-3' style={{minHeight:"50vh"}}>
+                    <img className='img-fluid w-25' src={searchImg}/>
+                    <p className='text-center mt-3 main-color-opacity'>No Matches</p>
                 </div> :
                 <CardsContainer loading={loading} data={searchList} role={"search"} />
             }

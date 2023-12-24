@@ -3,12 +3,15 @@ import Col from 'react-bootstrap/esm/Col'
 import Row from 'react-bootstrap/esm/Row'
 import logo from "../../images/logo2.png"
 import { BaseURL } from '../../Api/Api'
+import { useSelector } from 'react-redux'
+import Loading from '../Loading'
 const FirstSection = ({ image }) => {
+    const {loading }=useSelector(state=>state.CategorySlice)
     return (
         <section className='mb-5 first-section'>
             <Row  >
                 <Col lg={6} xs={6} className=' center  '>
-                    <div className='category-img'><img className='rounded' src={`${BaseURL}${image}`} alt="battery" /></div>
+                    <Loading loading={loading}><div className='category-img'><img className='rounded' src={`${BaseURL}${image}`} alt="battery" /></div></Loading>
                 </Col>
                 <Col lg={6} xs={6} className='d-flex align-items-stert  justify-content-center gap-3 flex-column'>
                     <h1 className='main-color display-4 et'>Everything</h1>

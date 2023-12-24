@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Col from 'react-bootstrap/esm/Col'
 import Row from 'react-bootstrap/esm/Row'
-import CardsContainer from '../Sub Categories Page/CardsContainer'
+import CardsContainer from '../Category Page/CardsContainer'
 import MostPopular from './MostPopular'
 import { useSelector } from 'react-redux'
 const ProductsShow = () => {

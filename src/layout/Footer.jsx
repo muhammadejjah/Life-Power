@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
 const Footer = () => {
     return (
-        <footer className='mt-4 ' >
+        <footer className='mt-5 ' >
             <Container>
                 <Row className='pt-4'>
                     <Col xs={12} md={4}>

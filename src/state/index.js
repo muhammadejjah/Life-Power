@@ -6,6 +6,8 @@ import MostPopularSlice from "./MostPopularSlice";
 import ProductSlice from "./ProductSlice";
 import ContactSlice from "./ContactSlice";
 import SearchSlice from "./SearchSlice";
+import WindowSlice from "./WindowSlice";
+import CommentSlice from "./CommentSlice";
 const store = configureStore({
        reducer: {
               HomeSlice,
@@ -14,7 +16,9 @@ const store = configureStore({
               MostPopularSlice,
               ProductSlice,
               ContactSlice,
-              SearchSlice
+              SearchSlice,
+              WindowSlice,
+              CommentSlice
        }
 })
 export default store;

@@ -20,6 +20,7 @@ const ContactForm = () => {
         email: "",
         phone: "",
     })
+
     const resetForm = () => {
         setForm({
             ...form,
@@ -30,6 +31,7 @@ const ContactForm = () => {
             phone: "",
         })
     }
+
     useEffect(() => {
         if (open) {
             Swal.fire({
@@ -44,10 +46,12 @@ const ContactForm = () => {
             })
         }
     }, [open])
+
     const handleChange = (e) => {
         e.preventDefault();
         setForm({ ...form, [e.target.name]: e.target.value })
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(PostContactForm(form)).then(() => {
@@ -57,8 +61,10 @@ const ContactForm = () => {
 
     const data = [
         { icon: faPhone, title: "0988417907" },
-        { icon: faEnvelope, title: "lifepower@lifepower.com" },
-        { icon: faLocationDot, title: "102 street" },
+        { icon: faEnvelope, title: "info@life-power.co" },
+        {
+            icon: faLocationDot, title: `Dubai Office:
+        /n Shop, 17, City Stay Premium Hotel, Naif Deira, Nakheel Road, Dubai, UAE.` },
     ];
     const dataShow = data.map((el, idx) => {
         return (
@@ -72,7 +78,20 @@ const ContactForm = () => {
         <Container>
             <Row>
                 <Col sm={12} lg={6} className='d-flex align-items-center justify-content-evenly gap-5 flex-column'>
-                    {dataShow}
+                    <div className='d-flex align-items-center justify-content-center flex-column gap-2' >
+                        <div className='contact-icon-content '><FontAwesomeIcon className='contact-icon main-color' size='2xl' icon={faPhone} /></div>
+                        <p className='m-0 fw-bold'>Dubai - UAE :</p>
+                        <a href='tel:00971524591953'>+971 52 459 1953</a>
+                    </div>
+                    <div className='d-flex align-items-center justify-content-center flex-column gap-2' >
+                        <div className='contact-icon-content'><FontAwesomeIcon className='contact-icon main-color' size='2xl' icon={faEnvelope} /></div>
+                        <a href='mailto:info@life-power.co'>info@life-power.co</a>
+                    </div>
+                    <div className='d-flex align-items-center justify-content-center flex-column gap-2' >
+                        <div className='contact-icon-content'><FontAwesomeIcon className='contact-icon main-color' size='2xl' icon={faLocationDot} /></div>
+                        <p className='m-0 fw-bold'>Dubai Office:</p>
+                        <p className='m-0 text-center w-50'>Shop, 17, City Stay Premium Hotel, Naif Deira, Nakheel Road, Dubai, UAE.</p>
+                    </div>
                 </Col>
                 <Col sm={12} lg={6}>
                     <div className='px-3'>

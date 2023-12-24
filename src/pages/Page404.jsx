@@ -13,9 +13,9 @@ const Page404 = () => {
                             </div>
                             <div className="contant_box_404">
                                 <h3 className="h2 primery-color">
-                                    Look like you're lost
+                                    Looks like you're lost
                                 </h3>
-                                <p>the page you are looking for not avaible!</p>
+                                <p>the page you are looking for is not available!</p>
                                 <Link to="/" className="link_404">Go to Home</Link>
                             </div>
                         </div>

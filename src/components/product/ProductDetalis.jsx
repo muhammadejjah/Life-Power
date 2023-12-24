@@ -21,7 +21,7 @@ const ProductDetalis = ({ details, desc }) => {
             <tr key={idx}>
                 <td style={{ width: "30%" }} className='py-2 mb-3'>{el.name}</td>
                 <td style={{ width: "70%", opacity: "80%" }} className='py-2 mb-3'>
-                    {el.value}
+                    {el.type === "url" ? <a target='_blank' href={el.value} rel="noreferrer">{el.value}</a> : <p>{el.value}</p>}
                 </td>
             </tr>
         )
@@ -47,7 +47,15 @@ const ProductDetalis = ({ details, desc }) => {
                             }}
                         />
                         :
-                        <a className='main-color' href={el.value} download={`${el.name}`}><FontAwesomeIcon icon={faShareFromSquare}/> Click For Show...</a>}
+                        <a
+                            className='main-color'
+                            href={el.value}
+                            download={`${el.name}`}
+                            target='_blank'
+                            rel="noreferrer"
+                        >
+                            <FontAwesomeIcon icon={faShareFromSquare} /> Click For Show...
+                        </a>}
                 </td>
             </tr>
         )
@@ -56,8 +64,8 @@ const ProductDetalis = ({ details, desc }) => {
     return (
         <Fragment>
             <p className='main-color-opacity mb-4'
-            dangerouslySetInnerHTML={{ "__html": desc }}
-            >   
+                dangerouslySetInnerHTML={{ "__html": desc }}
+            >
             </p>
             <Row>
                 <Col xs={12} lg={8}>

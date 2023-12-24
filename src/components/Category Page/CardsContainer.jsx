@@ -7,7 +7,7 @@ const CardsContainer = ({ data, role, loading }) => {
 
   const dataShow = data1.map((el, i) => {
     return (
-      <CardProduct role={role} key={i} img={`${BaseURL}${role === "search" ? el.thumbnail : el.image}`} desc={role === "subCategory" ? el.title : el.name} id={el.id} />
+      <CardProduct role={role} key={i} img={`${BaseURL}${role === "search" ? el.thumbnail : el.image}`} desc={role === "subCategory" ? el.subtitle : el.name} id={el.id} />
     )
   })
 

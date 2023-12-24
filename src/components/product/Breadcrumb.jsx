@@ -19,7 +19,7 @@ const ProductBreadcrumb = () => {
 
   return (
     <Breadcrumb style={{ marginTop: "75px" }}>
-      <Link className='breadcrumb-item ' to={`/categories/${category.id}`}>{
+      <Link className='breadcrumb-item ' to={`/category/${category.id}`}>{
         category.name
       }</Link>
       <Link className='breadcrumb-item ' to={`/products/${subCategory.id}`}>{subCategory.name}</Link>

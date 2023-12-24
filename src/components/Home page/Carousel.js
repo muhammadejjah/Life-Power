@@ -19,7 +19,7 @@ function CarouselAd() {
     return (
         <Container>
             <div className='mb-5 pt-3 ' style={{ marginTop: "70px" }}>
-                <Carousel fade controls={false} touch={true}  >
+                <Carousel fade controls={true} touch={true}  >
                     {captionsShow}
                 </Carousel>
             </div>
