@@ -5,15 +5,17 @@ import Footer from '../layout/Footer'
 import SupportCircle from '../layout/SupportCircle'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+
 const RootElement = () => {
   useEffect(() => {
     Aos.init();
-}, [])
+  }, [])
+
   return (
     <div>
       <Header />
       <Outlet />
-      <SupportCircle/>
+      <SupportCircle />
       <Footer />
     </div>
   )

@@ -6,13 +6,12 @@ import store from './state';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import ScrollToTop from './Hooks/ScrollToTop';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <Provider store={store} >
     <BrowserRouter>
-      <ScrollToTop />
+      <ScrollToTop/>
       <App />
     </BrowserRouter>
   </Provider>

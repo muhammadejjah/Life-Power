@@ -14,12 +14,19 @@ import { BaseURL } from '../../Api/Api';
 const HomeCategories = () => {
     const { categories } = useSelector(state => state.HomeSlice)
     const { windowSize } = useSelector(state => state.WindowSlice)
+
     const showData = categories.map((el, idx) => {
         return (
-            <SwiperSlide key={idx} className='d-flex align-items-center justify-content-start flex-column'  >
-                <Link style={{ minHeight: "300px", minWidth: "200px" }} to={`category/${el.id}`}><img className='swiper-img img-fluid' alt='x' src={`${BaseURL}${el.image}`} /></Link>
-                <div className="d-flex justify-content-center" >
-                    <Dropdown className=" mx-2 ">
+            <SwiperSlide key={idx} className='d-flex align-items-center justify-content-center flex-column'  >
+                <Link
+                    style={{ height: "300px", width: "300px", overflow: "hidden" }}
+                    to={`category/${el.id}`}
+                    className='center'
+                >
+                    <img loading='lazy' style={{ width: "80%" }} className='swiper-img img-fluid' alt='x' src={`${BaseURL}${el.image}`} />
+                </Link>
+                <div className="" >
+                    <Dropdown className=" ">
                         <Dropdown.Toggle id="dropdown-autoclose-true" className='category-dropdown'>
                             {el.name}
                         </Dropdown.Toggle>
@@ -37,8 +44,8 @@ const HomeCategories = () => {
     })
 
     return (
-        <section id='categories' className='liner-background my-5' style={{ position: "relative" }}>
-            <img
+        <section id='categories' className='liner-background my-5 px-3' style={{ position: "relative" }}>
+            <img loading='lazy'
                 data-aos="zoom-in-right"
                 data-aos-duration="1000"
                 src={logo192}
@@ -56,7 +63,9 @@ const HomeCategories = () => {
                     modules={[Navigation, A11y]}
                     navigation
                     spaceBetween={windowSize < 576 ? 200 : 50}
-                    slidesPerView={windowSize < 576 ? 1 : 3.5}
+                    slidesPerView={windowSize < 576 ? 1 : 3}
+                    centeredSlides
+                    initialSlide={1}
                 >
                     {categories && showData}
                 </Swiper>

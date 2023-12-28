@@ -11,6 +11,7 @@ function CarouselAd() {
                     className="d-block w-100  Carousel-img  "
                     src={`${BaseURL}${el}`}
                     alt={el}
+                    loading='lazy'
                 />
             </Carousel.Item>
         )

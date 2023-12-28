@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BaseApiURL } from "../Api/Api";
+
 const initialState = {
     searchList: [],
     searchListShow: [],
@@ -26,7 +27,6 @@ const SearchSlice = createSlice({
         setSearchTittle: (state, action) => {
             state.searchTitle = action.payload
         }
-
     },
     extraReducers: (builder) => {
         builder
@@ -48,5 +48,6 @@ const SearchSlice = createSlice({
     }
 
 })
+
 export default SearchSlice.reducer
 export const { setSearchTittle } = SearchSlice.actions

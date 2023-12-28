@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/esm/Container';
@@ -8,24 +8,27 @@ import 'swiper/css';
 import { useDispatch, useSelector } from 'react-redux';
 import { BaseURL } from '../../Api/Api';
 import { smallScreens } from '../../state/WindowSlice';
+
 const HomeSwiper = () => {
   const { bestSelling } = useSelector(state => state.HomeSlice)
   const dispatch = useDispatch()
-    const { windowSize } = useSelector(state => state.WindowSlice)
-    useEffect(() => {
-        const handleResize = () => {
-            dispatch(smallScreens(window.innerWidth));
-        };
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+  const { windowSize } = useSelector(state => state.WindowSlice)
+
+  useEffect(() => {
+    const handleResize = () => {
+      dispatch(smallScreens(window.innerWidth));
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const dataShow = bestSelling.map((el, idx) => {
     return (
       <SwiperSlide key={idx} className=''>
         <Link to={`/product/${el.id}`} className='' >
-          <img className='swiper-img ' alt='x' src={`${BaseURL}${el.image}`} />
+          <img loading='lazy' className='swiper-img ' alt='x' src={`${BaseURL}${el.image}`} />
           <p className='text-dark text-center mt-2'>{el.name}</p>
         </Link>
       </SwiperSlide>
@@ -50,7 +53,7 @@ const HomeSwiper = () => {
             // data-aos-duration="1500"
             style={{ minHeight: "200px" }}
             className='product-swiper py-2 px-5'
-            spaceBetween={0}
+            spaceBetween={10}
             slidesPerView={windowSize < 576 ? 1.5 : 3.5}
             autoplay={{
               delay: 2500,

@@ -37,9 +37,9 @@ const ContactForm = () => {
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: `Welcome ${form.first_name}`,
+                text:"We will review your message as soon as possible. Thank you",
                 showConfirmButton: false,
-                timer: 3000,
+                timer: 5000,
             }).then(() => {
                 resetForm()
                 setOpen(false)
@@ -59,28 +59,13 @@ const ContactForm = () => {
         })
     }
 
-    const data = [
-        { icon: faPhone, title: "0988417907" },
-        { icon: faEnvelope, title: "info@life-power.co" },
-        {
-            icon: faLocationDot, title: `Dubai Office:
-        /n Shop, 17, City Stay Premium Hotel, Naif Deira, Nakheel Road, Dubai, UAE.` },
-    ];
-    const dataShow = data.map((el, idx) => {
-        return (
-            <div key={idx} className='d-flex align-items-center justify-content-center flex-column gap-3' >
-                <div className='contact-icon-content'><FontAwesomeIcon className='contact-icon main-color' size='2xl' icon={el.icon} /></div>
-                <p>{el.title}</p>
-            </div>
-        )
-    })
     return (
         <Container>
             <Row>
                 <Col sm={12} lg={6} className='d-flex align-items-center justify-content-evenly gap-5 flex-column'>
                     <div className='d-flex align-items-center justify-content-center flex-column gap-2' >
                         <div className='contact-icon-content '><FontAwesomeIcon className='contact-icon main-color' size='2xl' icon={faPhone} /></div>
-                        <p className='m-0 fw-bold'>Dubai - UAE :</p>
+                        <p className='m-0 fw-bold main-color'>Dubai - UAE</p>
                         <a href='tel:00971524591953'>+971 52 459 1953</a>
                     </div>
                     <div className='d-flex align-items-center justify-content-center flex-column gap-2' >
@@ -89,7 +74,7 @@ const ContactForm = () => {
                     </div>
                     <div className='d-flex align-items-center justify-content-center flex-column gap-2' >
                         <div className='contact-icon-content'><FontAwesomeIcon className='contact-icon main-color' size='2xl' icon={faLocationDot} /></div>
-                        <p className='m-0 fw-bold'>Dubai Office:</p>
+                        <p className='m-0 fw-bold main-color'>Dubai Office</p>
                         <p className='m-0 text-center w-50'>Shop, 17, City Stay Premium Hotel, Naif Deira, Nakheel Road, Dubai, UAE.</p>
                     </div>
                 </Col>
@@ -138,7 +123,7 @@ const ContactForm = () => {
                                 <label htmlFor='number'>Phone Number</label>
                                 <input
                                     type='text'
-                                    placeholder='&#xf095;  Phone Number'
+                                    placeholder='&#xf095;  +971XX-XXX-XXXX '
                                     id='number'
                                     name='phone'
                                     value={form.phone}

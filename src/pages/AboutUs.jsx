@@ -5,8 +5,8 @@ import AboutView from '../components/About Us Page/AboutView'
 const AboutUs = () => {
   return (
     <div >
-      <ImgHeader  img={blueHeader} title={"About Us"} role="aboutUs"/>
-      <AboutView/>
+      <ImgHeader img={blueHeader} title={"About Us"} role="aboutUs" />
+      <AboutView />
     </div>
   )
 }

@@ -12,12 +12,13 @@ const CategoryPage = () => {
   const dispatch = useDispatch()
   const { pathname } = useLocation()
   const { category, loading, error } = useSelector(state => state.CategorySlice)
+
   useEffect(() => {
     if (id != category.category_id) {
       dispatch(getCategory(id))
     }
   }, [pathname])
-  
+
   return (
     <Container style={{ marginTop: "75px" }}>
       <Err error={error}>

@@ -8,7 +8,7 @@ import about2 from '../../images/about2.jpg'
 const AboutView = () => {
 
     return (
-        <Container className='mt-5'>
+        <Container className='mt-5' style={{overflow:"hidden"}}>
             <Row className='about-row'>
                 <Col  xs={12} lg={6} className='d-flex flex-column ali-items-start justify-content-center p-5 gap-4 '>
                     <h2 className='primery-color fw-bold mb-3' data-aos="fade-right">Our Story</h2>

@@ -10,6 +10,7 @@ const HomeAboutUs = () => {
     return (
         <section className='liner-background mt-5' style={{ position: "relative", overflow: "hidden" }}>
             <img
+                loading='lazy'
                 data-aos="zoom-in-right"
                 data-aos-duration="1000"
                 src={logo192}
@@ -25,7 +26,7 @@ const HomeAboutUs = () => {
                         md={4}
                         className='d-flex flex-column align-items-center justify-content-start text-center gap-3 px-5 '>
                         <div className='about-circle shadow'>
-                            <img src={icon1} alt="1" />
+                            <img loading='lazy' src={icon1} alt="1" />
                         </div>
                         <h5 className='primery-color fw-bold' >Reliable Maintenance Services</h5>
                         <p>"Our maintenance services provide peace of mind for our customers."
@@ -37,7 +38,7 @@ const HomeAboutUs = () => {
                         md={4}
                         className='d-flex flex-column align-items-center justify-content-start text-center gap-3 px-5'>
                         <div className='about-circle shadow'>
-                            <img src={icon2} alt="1" />
+                            <img loading='lazy' src={icon2} alt="1" />
                         </div>
                         <h5 className='primery-color fw-bold' >High Quality</h5>
                         <p>"Our high-quality batteries deliver lasting power and reliability, ensuring customer satisfaction."
@@ -49,7 +50,7 @@ const HomeAboutUs = () => {
                         md={4}
                         className='d-flex flex-column align-items-center justify-content-start text-center gap-3 px-5'>
                         <div className='about-circle shadow'>
-                            <img src={icon3} alt="1" />
+                            <img loading='lazy' src={icon3} alt="1" />
                         </div>
                         <h5 className='primery-color fw-bold' >24/7 Support</h5>
                         <p>"Our customer care team is committed to exceptional service for your contentment."

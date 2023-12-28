@@ -3,8 +3,9 @@ import Col from 'react-bootstrap/esm/Col'
 import Row from 'react-bootstrap/esm/Row'
 import { BaseURL } from '../../Api/Api'
 import { useSelector } from 'react-redux'
-const ProductsIntro = ({image}) => {
-    const {subCategory}=useSelector(state=>state.SubCategorySlice)
+import Loading from '../Loading'
+const ProductsIntro = ({ image }) => {
+    const { subCategory, loading } = useSelector(state => state.SubCategorySlice)
     return (
         <section className='product-intro mb-5'>
             <Row style={{ height: "100%" }} >
@@ -14,9 +15,11 @@ const ProductsIntro = ({image}) => {
                     <p>{subCategory.subcategory_description}</p>
                 </Col>
                 <Col className='  d-flex flex-column align-items-center justify-content-center p-2' sm={6}>
-                    <div >
-                        <img className='product-intro-img' src={`${BaseURL}${image}`} alt='product-intro-img' />
-                    </div>
+                    <Loading loading={loading}>
+                        <div >
+                            <img className='product-intro-img' src={`${BaseURL}${image}`} alt='product-intro-img' />
+                        </div>
+                    </Loading>
                 </Col>
             </Row>
         </section>

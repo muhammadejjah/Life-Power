@@ -2,20 +2,22 @@ import React, { Fragment, useEffect, useState } from 'react'
 import Col from 'react-bootstrap/esm/Col'
 import Row from 'react-bootstrap/esm/Row'
 import MostPopular from '../products/MostPopular'
-import { BaseURL } from '../../Api/Api'
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShareFromSquare } from '@fortawesome/free-solid-svg-icons'
+
 const ProductDetalis = ({ details, desc }) => {
     const data = details || {}
     const [attributes, setAttributes] = useState([])
     const [files, setFiles] = useState([])
+
     useEffect(() => {
         if (data) {
             setAttributes(data.attributes)
             setFiles(data.files)
         }
     }, [data])
+
     const attributesShow = attributes.map((el, idx) => {
         return (
             <tr key={idx}>
@@ -26,6 +28,7 @@ const ProductDetalis = ({ details, desc }) => {
             </tr>
         )
     })
+
     const filesShow = files.map((el, idx) => {
         return (
             <tr key={idx}>

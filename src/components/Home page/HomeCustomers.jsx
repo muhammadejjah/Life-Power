@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { Autoplay, Pagination, Navigation  } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import Col from 'react-bootstrap/esm/Col';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -16,9 +16,9 @@ const HomeCustomers = () => {
     const dataShow = comments.map((el, idx) => {
         return (
             <SwiperSlide className='customer-slide' key={idx}>
-                <div className='p-4 shadow costumer d-flex flex-column justify-content-evenly ' style={{ borderRadius: "10px" }}>
-                    <p className='customer-context' style={{opacity:"90%"}}>{el.content}</p>
-                    <div className='row '>
+                <div className='p-4 shadow costumer d-flex flex-column justify-content-evenly ' style={{ borderRadius: "10px", overflow: "hidden" }}>
+                    <p className='customer-context' style={{ opacity: "90%" }}>{el.content}</p>
+                    <div data-swiper-parallax="-100" className='row '>
                         <Col xs={9} >
                             <h5 className='fw-bold main-color '>{el.username}</h5>
                             <p className='main-color-opacity'>{el.career}</p>

@@ -11,7 +11,7 @@ const FirstSection = ({ image }) => {
         <section className='mb-5 first-section'>
             <Row  >
                 <Col lg={6} xs={6} className=' center  '>
-                    <Loading loading={loading}><div className='category-img'><img className='rounded' src={`${BaseURL}${image}`} alt="battery" /></div></Loading>
+                    <Loading loading={loading}><div className=' category-img'><img className='rounded' src={`${BaseURL}${image}`} alt="battery" /></div></Loading>
                 </Col>
                 <Col lg={6} xs={6} className='d-flex align-items-stert  justify-content-center gap-3 flex-column'>
                     <h1 className='main-color display-4 et'>Everything</h1>

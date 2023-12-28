@@ -4,6 +4,7 @@ import logo from '../images/logo-white.png'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
+
 const Footer = () => {
     return (
         <footer className='mt-5 ' >
@@ -23,8 +24,8 @@ const Footer = () => {
                     <Col xs={12} md={4}>
                         <h4 className='text-light  mt-xs-3'>Follow Us</h4>
                         <div className='d-flex align-items-center justify-content-stert gap-4 mt-3 social-links'>
-                            <a  href={"https://www.facebook.com"} target="_blank"><FontAwesomeIcon size='xl' icon={faFacebook} /></a>
-                            <a href='#' target="_blank"><FontAwesomeIcon size='xl'  icon={faInstagram} /></a>
+                            <a href={"https://www.facebook.com"} target="_blank"><FontAwesomeIcon size='xl' icon={faFacebook} /></a>
+                            <a href='#' target="_blank"><FontAwesomeIcon size='xl' icon={faInstagram} /></a>
                             <a href='#' target="_blank"><FontAwesomeIcon size='xl' icon={faYoutube} /></a>
                         </div>
                     </Col>

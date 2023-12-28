@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Life-Power",
+  "name": "Life-Power",
   "icons": [
     {
       "src": "favicon.ico",
@@ -9,13 +9,13 @@
     },
     
     {
-      "src": "logo512.png",
+      "src": "logo2.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "78x85"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#005090",
+  "background_color": "#B4D0E8"
 }

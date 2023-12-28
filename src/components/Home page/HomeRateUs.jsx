@@ -7,6 +7,7 @@ import { PostCommentForm } from '../../state/CommentSlice'
 import Loading from '../Loading'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 const HomeRateUs = () => {
     const dispatch = useDispatch()
     const { loading } = useSelector(state => state.CommentSlice)
@@ -18,21 +19,23 @@ const HomeRateUs = () => {
         career: "",
         rate: 4,
     })
+
     const resetForm = () => {
         setForm({
             ...form,
             username: "",
             content: "",
             career: "",
-            rate: "",
+            rate: "4",
         })
     }
+
     useEffect(() => {
         if (open) {
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: `Thanks For Rating ${form.username}`,
+                text: `Thanks For Rating`,
                 showConfirmButton: false,
                 timer: 3000,
             }).then(() => {
@@ -41,16 +44,19 @@ const HomeRateUs = () => {
             })
         }
     }, [open])
+
     const handleChange = (e) => {
         e.preventDefault();
         setForm({ ...form, [e.target.name]: e.target.value })
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(PostCommentForm(form)).then(() => {
             setOpen(true)
         })
     }
+
     return (
         <section className='my-5'>
             <Container>
@@ -61,8 +67,8 @@ const HomeRateUs = () => {
                                 <h2 className='fw-bold'>Want to say more?</h2>
                                 <h2 className='primery-color fw-bold'>Rate<span className='main-color'> us</span></h2>
                             </div>
-                            <div className='center mt-5 w-100'>
-                                <img style={{ width: "60%" }} data-aos="fade-right" data-aos-duration="1000" src={rate} alt='.' />
+                            <div className='d-flex align-items-center justify-content-start mt-5 w-100'>
+                                <img loading='lazy' style={{ width: "60%" }} data-aos="fade-right" data-aos-duration="1000" src={rate} alt='.' />
                             </div>
                         </div>
                     </Col>

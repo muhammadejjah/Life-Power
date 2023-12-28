@@ -16,7 +16,7 @@ const MostPopular = () => {
     const dataShow = mostPopular.map((el, idx) => {
         return (
             <Link to={`/product/${el.id}`} key={idx} className='mp-wraper px-2 mb-2 gap-2'>
-                <img className='border rounded' style={{ width: "60px", aspectRatio: "1/1" }} src={`${BaseURL}${el.image}`} alt='mp-img' />
+                <img className='border rounded' style={{ width: "60px", aspectRatio: "1/1",objectFit:"contain" }} src={`${BaseURL}${el.image}`} alt='mp-img' />
                 <div className='w-100 d-flex align-items-center justify-content-center border rounded' ><p className=' m-0 text-dark'>{el.name}</p></div>
             </Link>
         )

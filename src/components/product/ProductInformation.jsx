@@ -3,11 +3,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/esm/Col';
 import ProductViewer from './ProductViewer';
 import { useSelector } from 'react-redux';
-import { Button, ButtonGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload, faEye, faFile } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faEye } from '@fortawesome/free-solid-svg-icons';
+
 const ProductInformation = () => {
     const { product } = useSelector(state => state.ProductSlice)
+
     return (
         <Row className='mb-4'>
             <Col sm={12} lg={7}><ProductViewer images={product.images} /></Col>

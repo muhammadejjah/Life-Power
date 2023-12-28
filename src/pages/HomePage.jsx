@@ -20,7 +20,7 @@ const HomePage = () => {
           <HomeAboutUs />
           <HomeCategories />
           <HomeCustomers />
-          <HomeRateUs/>
+          <HomeRateUs />
         </Loading>
       </div>
     </Err>

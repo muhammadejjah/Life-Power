@@ -4,12 +4,14 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 const SupportCircle = () => {
   const location = useLocation()
-  const [pathname, setPathName]=useState(location.pathname)
-useEffect(()=>{
-  setPathName(location.pathname)
-},[location.pathname])
+  const [pathname, setPathName] = useState(location.pathname)
+
+  useEffect(() => {
+    setPathName(location.pathname)
+  }, [location.pathname])
+
   return (
-    <Link to={'/contact'} style={{display:pathname==="/contact"?"none":"block"}}>
+    <Link to={'/contact'} style={{ display: pathname === "/contact" ? "none" : "block" }}>
       <div className='sup-circle fade-circle shadow '
       >
         <FontAwesomeIcon className='text-light m-0' size={'xl'} icon={faMessage} />

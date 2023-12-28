@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import Loading from '../components/Loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Offcanvas, } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getHomeData } from '../state/HomeSlice';
@@ -26,13 +26,13 @@ const Header = () => {
     const [term, setTerm] = useState("")
 
     useEffect(() => {
-        const timeout =setTimeout(()=>{
+        const timeout = setTimeout(() => {
             if (term) {
                 dispatch(getSearch(term))
                 dispatch(setSearchTittle(term))
             }
-        },200)
-        return ()=>{
+        }, 200)
+        return () => {
             clearTimeout(timeout)
         }
     }, [term])
@@ -41,6 +41,7 @@ const Header = () => {
         setTerm("")
         handleClose()
     }
+
     const searchResult = searchListShow.map((el, idx) => {
         return (
             <div key={el.id} className=' w-100 px-4 search-result d-flex  align-items-center justify-content-center'>
@@ -50,17 +51,20 @@ const Header = () => {
                     onClick={closeAfterSearch}
                 >
                     <img src={`${BaseURL}${el.thumbnail}`} alt='search-result' style={{ width: "30px", objectFit: "contain" }} />
-                    <p className='m-0'>{el.name}</p>
+                    <p className='m-0'>{el.name.length >= 8 ? el.name.slice(0, 8) + ".." : el.name}</p>
                 </Link>
             </div>
         )
     })
+
     const toggleMenu = () => {
         if (menuOpen) {
             setMenuOpen(!menuOpen)
         }
     }
+
     const handleClose = () => setMenuOpen(false)
+
     useEffect(() => {
         const handleClick = (event) => {
             if (dropdown.current && !dropdown.current.contains(event.target) && !productNav.current.contains(event.target)) {
@@ -73,21 +77,25 @@ const Header = () => {
         };
     }, [])
 
-
     useEffect(() => {
         dispatch(getHomeData())
     }, [dispatch])
-
 
     const accordionDropdown = categories.map((el, idx) => {
         return (
             <Accordion key={el.id}>
                 <Accordion.Item eventKey="0">
-                    <Accordion.Header><Link style={{zIndex:"999"}} to={`category/${el.id}`}>{el.name}</Link></Accordion.Header>
+                    <Accordion.Header><Link style={{ zIndex: "999" }} to={`category/${el.id}`}>{el.name}</Link></Accordion.Header>
                     <Accordion.Body>
                         {el.subcategories.map((element, i) => {
                             return (
-                                <Link className='dropdown-link ' onClick={() => { setOpen(false) }} key={i} to={`/products/${element.id}`}>
+                                <Link className='dropdown-link ' onClick={() => {
+                                    setOpen(false)
+                                    toggleMenu()
+                                }}
+                                    key={i}
+                                    to={`/products/${element.id}`}
+                                >
                                     <p style={{ fontSize: "16px", fontWeight: "500", opacity: "80%" }} className='m-0 main-color'>{element.title}</p>
                                     <p style={{ fontSize: "13px" }} className='m-0 main-color-opacity'>{element.subtitle}</p>
                                 </Link>
@@ -98,8 +106,6 @@ const Header = () => {
             </Accordion>
         )
     })
-
-
 
     return (
         <Navbar collapseOnSelect expand="lg" className=' header w-100 shadow' fixed='top' style={{ zIndex: "1000" }}   >
@@ -188,8 +194,8 @@ const Header = () => {
                             <div style={{ display: term ? "block" : "none" }} className='search-dropdown'>
                                 <Loading loading={loading}>
                                     {error ?
-                                        <div className=' center flex-column' style={{height:"150px"}}>
-                                            <img className='w-50' src={searchImg}/>
+                                        <div className=' center flex-column' style={{ height: "150px" }}>
+                                            <img className='w-50' src={searchImg} />
                                             <p className='main-color-opacity m-0'>No matches</p>
                                         </div> :
                                         <Fragment>

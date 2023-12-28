@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BaseApiURL } from "../Api/Api";
+
 const initialState = {
-    user:[],
+    user: [],
     error: null,
     loading: false
 }
@@ -11,7 +12,6 @@ export const PostContactForm = createAsyncThunk("contact/PostContactForm", async
     try {
         const res = await axios.post(`${BaseApiURL}/contact`, data)
         return res.data
-
     } catch (error) {
         return rejectWithValue(error);
     }
@@ -29,7 +29,7 @@ const ContactSlice = createSlice({
             .addCase(PostContactForm.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = null
-                state.user= action.payload
+                state.user = action.payload
             })
             .addCase(PostContactForm.rejected, (state, action) => {
                 state.loading = false;
@@ -38,4 +38,5 @@ const ContactSlice = createSlice({
     }
 
 })
+
 export default ContactSlice.reducer
