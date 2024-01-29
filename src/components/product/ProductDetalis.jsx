@@ -22,7 +22,7 @@ const ProductDetalis = ({ details, desc }) => {
         return (
             <tr key={idx}>
                 <td style={{ width: "30%" }} className='py-2 mb-3'>{el.name}</td>
-                <td style={{ width: "70%", opacity: "80%" }} className='py-2 mb-3'>
+                <td style={{ width: "70%", opacity: "80%" }} className='py-2 ps-4 mb-3'>
                     {el.type === "url" ? <a target='_blank' href={el.value} rel="noreferrer">{el.value}</a> : <p>{el.value}</p>}
                 </td>
             </tr>
@@ -33,7 +33,7 @@ const ProductDetalis = ({ details, desc }) => {
         return (
             <tr key={idx}>
                 <td style={{ width: "30%" }} className='py-2 mb-3'>{el.name}</td>
-                <td style={{ width: "70%", opacity: "80%" }} className='py-2 mb-3'>
+                <td style={{ width: "70%", opacity: "80%" }} className='py-2 ps-4 mb-3'>
                     {el.type === "image" ?
                         <img
                             src={el.value}
