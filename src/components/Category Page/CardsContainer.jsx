@@ -13,7 +13,8 @@ const CardsContainer = ({ data, role, loading }) => {
 
   return (
     <div className='d-flex  align-items-center  justify-content-lg-start justify-content-center gap-4  flex-wrap '>
-      <CardPlaceholder loading={loading}>{dataShow}</CardPlaceholder>
+      {dataShow}
+      {loading&&<CardPlaceholder loading={true}/>}
     </div>
   )
 }
