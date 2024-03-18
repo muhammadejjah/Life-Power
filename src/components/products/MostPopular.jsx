@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getMostPopular } from '../../state/MostPopularSlice'
 import Loading from '../Loading'
 import Err from '../Err'
+import logo from "../../images/logo2.png"
 const MostPopular = () => {
     const dispatch = useDispatch()
     const { mostPopular, loading, error } = useSelector(state => state.MostPopularSlice)

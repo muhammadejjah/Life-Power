@@ -22,7 +22,6 @@ const ProductsShow = () => {
           const res = await axios.get(`${BaseApiURL}/psubcategory/${subid}/${page}`)
           // const data = await res.json()
           setSuccess(res.data.success)
-          console.log(res.data)
           setData(prev=>[...prev,...res.data.data])
           setLoading(false)
   
